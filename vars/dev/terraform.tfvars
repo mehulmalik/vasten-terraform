@@ -1,0 +1,5 @@
+project = "vasten"
+region = "us-west1"
+location = "us-west1"
+name_prefix = "vasten"
+project_id = "566785458490"

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: fileserver_name-claim
+spec:
+  accessModes:
+  - ReadWriteMany
+  storageClassName: ""
+  volumeName: fileserver_name
+  resources:
+    requests:
+      storage: capacity

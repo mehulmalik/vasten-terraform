@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: DaemonSet # it is a daemonset
+metadata:
+  name: vasten-pod # name of the daemon set
+  labels:
+    # any Pods with matching labels are included in this Daemon Set
+    app: kubernetes-series
+    tier: backend
+spec:
+  selector:
+    # Pods will match with the following labels
+    matchLabels:
+      name: vasten-pod
+  template:
+    # Pod Template
+    metadata:
+      # Pod's labels
+      labels:
+        name: vasten-pod
+    spec:
+      # the container(s) in this Pod
+      containers:
+      - name: vasten-container
+        image: gcr.io/vasten/vasten-container-image:latest
+        volumeMounts:
+        - mountPath: /mnt/data
+          name: mypvc
+        # environment variables for the Pod
+        env:
+        - name: GCLOUD_PROJECT
+          value: vasten
+        ports:
+        - containerPort: 80
+      volumes:
+      - name: mypvc
+        persistentVolumeClaim:
+          claimName: fileserver-claim
+          readOnly: false

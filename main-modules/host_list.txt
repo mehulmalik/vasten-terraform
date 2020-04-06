@@ -1,0 +1,2 @@
+https://www.googleapis.com/compute/v1/projects/vasten/zones/us-west1-a/instances/gke-vasten-cluster-default-pool-9003eefa-g8h7
+https://www.googleapis.com/compute/v1/projects/vasten/zones/us-west1-a/instances/gke-vasten-cluster-default-pool-9003eefa-l2p1

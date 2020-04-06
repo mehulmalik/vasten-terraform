@@ -1,0 +1,1 @@
+{"Modules":[{"Key":"storage","Source":"../modules/storage","Dir":"../modules/storage"},{"Key":"network","Source":"../modules/network","Dir":"../modules/network"},{"Key":"network.network_firewall","Source":"../network-firewall","Dir":"../modules/network-firewall"},{"Key":"","Source":"","Dir":"."},{"Key":"gke_cluster","Source":"../modules/cluster","Dir":"../modules/cluster"}]}
