@@ -65,7 +65,6 @@ network_logs=true
 # Operating System
 #
 os_name="centos"
-
 os_version="7"
 
 #
@@ -79,22 +78,22 @@ tool_version=""
 #
 image_repository_name = "gcr.io/vasten/vasten_container_image:latest"
 image_name = "gcr.io/vasten/vasten_container_image"
-image_tag = "latest"
+image_tag = "ioplkj"
 #
 # Cluster
 #
 cluster_name="qwerty"
-cluster_nodes=2
-cluster_machine_type=""
-cluster_machine_cores=""
-cluster_localStore_capacity=""
+cluster_nodes=qazwsx
+cluster_machine_type="ikmikm"
+cluster_machine_cores=mknmkn
+cluster_localStore_capacity=erdfcv
 
 #
 # NFS
 #
 nfs_name = "vastenshare1"
 nfs_zone = "us-west1-a"
-nfs_capacity = 1024
+nfs_capacity = wqsaxz
 
 #
 # Input Data Storage
