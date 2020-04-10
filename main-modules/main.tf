@@ -59,6 +59,12 @@ module "gke_cluster" {
 
   initial_node_count = var.cluster_nodes
 
+  machine_type = var.cluster_machine_type
+
+  machine_cores = var.cluster_machine_cores
+
+  localStore_capacity = var.cluster_localStore_capacity
+
   network  = module.network.network
 
   vpc_network = module.network.private
