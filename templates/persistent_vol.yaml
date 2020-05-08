@@ -1,13 +1,15 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: fileserver
+  name: newdemovasten52
+  labels:
+    name: newdemovasten52
 spec:
   capacity:
     storage: 1T
+  storageClassName: standard
   accessModes:
   - ReadWriteMany
   nfs:
-    path: /fileshare_name
-    server: 10.141.145.194
-hare_server_ip
+    path: /newdemovasten52
+    server: 10.219.42.202

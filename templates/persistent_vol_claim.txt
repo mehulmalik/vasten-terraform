@@ -4,9 +4,12 @@ metadata:
   name: fileserver_name-claim
 spec:
   accessModes:
-  - ReadWriteMany
-  storageClassName: ""
+  - ReadWriteOnce
+  storageClassName: "standard"
   volumeName: fileserver_name
-  resources:
+  resources:	
     requests:
       storage: capacity
+  selector:
+    matchLabels:
+      name: fileserver_name

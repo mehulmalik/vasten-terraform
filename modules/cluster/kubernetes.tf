@@ -133,14 +133,14 @@ resource "google_container_cluster" "cluster" {
 resource "null_resource" "get_creds" {
   depends_on = [google_container_cluster.cluster]
   provisioner "local-exec" {
-    command = "/home/scriptuit/google-cloud-sdk/bin/gcloud container clusters get-credentials vasten-cluster --zone=us-west1-a"
+    command = "gcloud container clusters get-credentials ${var.name}-cluster --zone=us-west1-a"
   }
 }
 
 resource "null_resource" "get_hostnames" {
   depends_on = [null_resource.get_creds, google_container_cluster.cluster]
   provisioner "local-exec" {
-    command = "/home/scriptuit/google-cloud-sdk/bin/gcloud compute instances list | awk {'print $4'} > ../templates/initial_hostnames_list.txt"
+    command = "gcloud compute instances list | awk {'print $4'} > ../templates/initial_hostnames_list.txt"
   }
 }
 
@@ -169,14 +169,14 @@ resource "null_resource" "update_final_hostnames" {
 resource "null_resource" "build_image" {
   depends_on = [ google_container_cluster.cluster, null_resource.update_hostnames]
   provisioner "local-exec" {
-    command = "sudo docker build -t gcr.io/vasten/vasten-container-image:latest ../."
+    command = "sudo docker build -t gcr.io/gold-braid-268003/vasten-container-image:latest ../."
   }
 }
 
 resource "null_resource" "push_image" {
   depends_on = [null_resource.build_image, google_container_cluster.cluster]
   provisioner "local-exec" {
-    command = "sudo docker push gcr.io/vasten/vasten-container-image:latest"
+    command = "sudo docker push gcr.io/gold-braid-268003/vasten-container-image:latest"
   }
 }
 
@@ -211,7 +211,7 @@ data "template_file" "init" {
 resource "null_resource" "deploy" {
   depends_on  = [null_resource.get_creds, google_container_cluster.cluster]
   provisioner "local-exec" {
-    command = "/home/scriptuit/google-cloud-sdk/bin/kubectl create deployment simple-web-app-deploy --image=gcr.io/vasten/vasten-container-image:latest"
+    command = "kubectl create deployment simple-web-app-deploy --image=gcr.io/vasten/vasten-container-image:latest"
   }
 }
 

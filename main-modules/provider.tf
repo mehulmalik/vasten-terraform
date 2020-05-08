@@ -1,5 +1,5 @@
 provider "google" {
-    credentials = "${file("~/Documents/Mehul/Vasten_Cloud/vasten_terraform/gold-braid-268003-a960129a6874.json")}"
+    credentials = "${file("../gold-braid-268003-730142342060.json")}"
     project     = "gold-braid-268003"
     region      = "us-west1"
 }

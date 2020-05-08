@@ -6,17 +6,17 @@ resource "null_resource" "module_depends_on" {
 
 resource "google_filestore_instance" "instance" {
   depends_on = [null_resource.module_depends_on]
-  name = var.name
+  name = "${var.name}"
   zone = var.zone
   tier = "STANDARD"
 
   file_shares {
     capacity_gb = var.capacity
-    name        = "vastenshare1"
+    name        = "${var.name}"
   }
 
   networks {
-    network = "vasten-network"
+    network = "${var.name}-network"
     modes   = ["MODE_IPV4"]
   }
 }
@@ -25,7 +25,7 @@ resource "google_filestore_instance" "instance" {
 resource "null_resource" "persistent_vol_setup" {
   depends_on = [google_filestore_instance.instance]
   provisioner "local-exec" {
-    command = "/bin/sed -e 's/fileserver_name/${var.fileserver_name}/' -e 's/vasten_share_server_ip/${google_filestore_instance.instance.networks[0].ip_addresses[0]}/' -e 's/fileserver_name/${var.capacity}/' -e 's/storage_limit/${var.storage}/' ../templates/persistent_vol_template.txt > ../templates/persistent_vol.txt"
+    command = "/bin/sed -e 's/fileserver_name/${var.name}/' -e 's/vasten_share_server_ip/${google_filestore_instance.instance.networks[0].ip_addresses[0]}/' -e 's/fileserver_name/${var.capacity}/' -e 's/storage_limit/${var.storage}/' ../templates/persistent_vol_template.txt > ../templates/persistent_vol.txt"
 
   }
 }
@@ -41,7 +41,7 @@ resource "null_resource" "delay" {
 resource "null_resource" "persistent_vol" {
   depends_on = [google_filestore_instance.instance, null_resource.persistent_vol_setup, null_resource.delay]
   provisioner "local-exec" {
-    command = "mv ../templates/persistent_vol.txt ../templates/persistent_vol.yaml && /home/scriptuit/google-cloud-sdk/bin/kubectl create -f ../templates/persistent_vol.yaml"
+    command = "mv ../templates/persistent_vol.txt ../templates/persistent_vol.yaml && kubectl create -f ../templates/persistent_vol.yaml"
   }
 }
 
@@ -52,34 +52,32 @@ resource "null_resource" "after" {
   }
 }
 
-resource "null_resource" "persistent_vol_claim_setup" {
-  depends_on = [google_filestore_instance.instance]
-  provisioner "local-exec" {
-    command = "/bin/sed -e 's/fileserver_name/${var.fileserver_name}/' -e 's/capacity/${var.capacity}/' ../templates/persistent_vol_template.txt > ../templates/persistent_vol.txt"
-
-  }
-}
-
-
 resource "null_resource" "persistent_vol_claim" {
   depends_on = [google_filestore_instance.instance, null_resource.persistent_vol, null_resource.after ]
   provisioner "local-exec" {
-    command = "/home/scriptuit/google-cloud-sdk/bin/kubectl create -f ../templates/persistent_vol_claim.yaml"
+    command = "kubectl create -f ../templates/persistent_vol_claim.yaml"
+  }
+}
+
+resource "null_resource" "pvc_after" {
+  depends_on = [google_filestore_instance.instance, null_resource.persistent_vol_claim]
+  provisioner "local-exec" {
+    command = "sleep 300"
   }
 }
 
 resource "null_resource" "daemon_template" {
-  depends_on = [google_filestore_instance.instance]
+  depends_on = [google_filestore_instance.instance, null_resource.persistent_vol_claim, null_resource.pvc_after ]
   provisioner "local-exec" {
-    command = "/bin/sed -e 's/fileserver_name/${var.fileserver_name}/' -e 's/prefix/${var.prefix}/' -e 's/image_repo_path/${var.image_repo_name}/' ../templates/persistent_vol_template.txt > ../templates/persistent_vol.txt"
+    command = "/bin/sed -e 's/prefix/${var.prefix}/' -e 's/image_repo_path/vasten_container_image/' ../templates/deamon.txt > ../templates/daemon_set_with_mnt.yaml"
 
   }
 }
 
 resource "null_resource" "daemon_set_with_mnt" {
-  depends_on = [google_filestore_instance.instance, null_resource.persistent_vol_claim]
+  depends_on = [google_filestore_instance.instance, null_resource.daemon_template]
   provisioner "local-exec" {
-    command = "/home/scriptuit/google-cloud-sdk/bin/kubectl apply -f ../templates/daemon_set_with_mnt.yaml"
+    command = "kubectl apply -f ../templates/daemon_set_with_mnt.yaml"
   }
 }
 

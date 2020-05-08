@@ -76,8 +76,8 @@ tool_version=""
 #
 # Registry
 #
-image_repository_name = "gcr.io/vasten/vasten_container_image:latest"
-image_name = "gcr.io/vasten/vasten_container_image"
+image_repository_name = "gcr.io/gold-braid-268003/vasten_container_image:latest"
+image_name = "vasten_container_image"
 image_tag = "ioplkj"
 #
 # Cluster

@@ -1,6 +1,3 @@
-variable "cluster_nodes" {
-
-}
 
 variable "name_prefix" {
   description = "A name prefix used in resource names to ensure uniqueness across a project."
@@ -13,7 +10,23 @@ variable "network_secondary_spacing" {
 variable "network_secondary_width" {
 }
 
+variable "cluster_nodes" {
+  default = ""
+}
 
+variable "cluster_machine_type" {
+  default = ""
+}
+
+
+variable "cluster_machine_cores" {
+  default = ""
+}
+
+
+variable "cluster_localStore_capacity" {
+  default = ""
+}
 
 variable "network_primary_spacing" {
 

@@ -22,6 +22,13 @@ variable "localStore_capacity" {
   
 }
 
+variable "machine_type" {
+  default = ""
+}
+
+variable "machine_cores" {
+  default = ""
+}
 
 variable "network" {
   description = "A reference (self link) to the VPC network to host the cluster in"

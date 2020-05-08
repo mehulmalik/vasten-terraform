@@ -11,7 +11,7 @@ output "uc1_public_address"  { value = "${module.network.uc1_public_address}"}
 module "network" {
   source = "../modules/network"
 
-  name_prefix = var.gcp_prefix
+  name_prefix = var.cluster_name
 
   project     = var.gcp_project
 
@@ -106,7 +106,7 @@ module "storage" {
 
   module_depends_on = ["${module.gke_cluster.name}"]
 
-  name = var.nfs_name
+  name = var.cluster_name
 
   zone = var.nfs_zone
 

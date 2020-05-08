@@ -5,8 +5,11 @@ metadata:
 spec:
   accessModes:
   - ReadWriteMany
-  storageClassName: ""
-  volumeName: fileserver
+  storageClassName: standard
+  volumeName: newdemovasten52
   resources:
     requests:
       storage: 1T
+  selector:
+     matchLabels:
+       name: newdemovasten52

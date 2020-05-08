@@ -21,9 +21,10 @@ spec:
       # the container(s) in this Pod
       containers:
       - name: vasten-container
-        image: gcr.io/vasten/vasten-container-image:latest
+        image: gcr.io/gold-braid-268003/vasten_container_image
         volumeMounts:
         - mountPath: /mnt/data
+          subPath: vasten-pod
           name: mypvc
         # environment variables for the Pod
         env:
