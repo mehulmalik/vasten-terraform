@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "unique-badge-276520",
+  "private_key_id": "3cc06295e54b64634f59bf514fa83b1da236e935",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDKMSkKvQXMj17E\nSi9jaGEiC++v6sMVMkPTWIq3Epz7UvYTSsaiZW3DSaYumde9pvIT4qPemGYXDEpb\nqLol6gwDtaFcW77UzVt63wbp03v3gQFT8zy+njzHqFuOU/yjpAytezDyQMCuaQBb\nF+MM2Ct+sryQSobTukNKDLLUd7q4kRhzNmmz67NT6NpnTgZOKVUnzsffPbhqD876\nLjI9MO7azm4d2urBFkB3CbAJ6Ww3nAQ/EmO2LgwL0AgjXRLHAQxanHH1AFbv3VjU\n/n8E/r0rno8AeEixj9jVriUM5CqgaInEFAW2IhkUpJATFpMJ614DUBrbeJToH4GR\nVYGoJ4WdAgMBAAECggEAG4zJmgLPLKQnwQOXY7+quzVjfOsLlt1I/Ei3FKKOzPiX\nurbjIZNEJVUT4DX/0qx8lV9kfbrymixcthLjqQaJiY3bmpaOW4z5weBsHuXn9n2s\n/SU0/zIszPWwjVBTVHF7dWibmZQKIm8Akz5KJotj7c5pPsNGOMj19zvguBjyUnMw\nycDQN7DHgQY+Mrqr8ioW1hMVtXbxtbJeOIcD0ncbhvgGJyBFWgo6nBLIPHdvvEKr\n4Ltvxp9hQJm3a4oNeTPKt6d91gafImSBT2ryMnb/IL+7Xn5NZwKlmqN2TLRv43+s\nzh9NjA8+/X5Na9bKOojF5Hd40oveS4cD49zRfu3CjwKBgQDmydvC4P2Ozy4gHIhb\nOYICMCvib0fD3u2R7Ona4ZYBRq+g623qgAkEGClk+BQ4XxR1A6DszlXNLUqS6Yrf\niJqFtks5CZelsXNnuYXlJ/kF2nzTUXDTG2ZXqIsCbtzln/WA51DUVIZNdWz267pE\nPcXnEh87hUaYmCUd2vmBxVD/8wKBgQDgR5V9GjfMo0Iq9nL4dwbTmbom86W6T2DB\njt402NLzQK5H+QQAIDDuxHHsHUG/d6iOn5XvRWcij2iB6eVIeYBc43d+jHnsBusS\nHuO61/doelE6TvBWOq0wAlkzMTBDE/wXltLsBeuJ5NCHpd293LO4y4yLUenaHouv\nkQNt4L9YLwKBgQCcuIcbl12YFOjltXqDOFIo2j1yzs6VHFWHurIziO0sgKvTQwyp\nKbj1ptK1ViGlBiwGKiilpphtdEwn55/+m+0Sz+/VE8Z/JjmQPlPGgZaBexU5Cxzq\nvriI3lNHm7E13aIBnxMsnRl2kD8mjn02yhwSBiRfbum5xdeupny4ux1+MQKBgCKB\ngPNdbEZUu+JmRmwJzAgUN7q0c8QFYGqHM5LH5TS9t9Kk8kOesEib+rcMDUiK/Wjs\nDqJgeCyuCbMrLDaJUwF3kbProvp4WgRQslLV1V/CqeqhqIJrxqeDRPwGTlmToo5y\niwL7KjDt/lNQZpxGb3Q4BOiOcr83QeCCHBf0oxvLAoGBAIInbGxN9Jllp1A/0sZK\n0b7cdMMlbXv0BpxVHJ79A3hvQ2bgeCyFCziudOP/RqamFaysOyjyJ3gJTg1FYRoJ\nQgKuGzsVjUvHv7h5BJ9ZLsSsNUoPl54g53eUpn1ZI/6BO7PVRY0Vi7+JtwA6IFCL\nUOd3dOKzOLPrlxgKYcFKnaMG\n-----END PRIVATE KEY-----\n",
+  "client_email": "vasten-service-account@unique-badge-276520.iam.gserviceaccount.com",
+  "client_id": "109373220809554404228",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/vasten-service-account%40unique-badge-276520.iam.gserviceaccount.com"
+}

@@ -169,14 +169,14 @@ resource "null_resource" "update_final_hostnames" {
 resource "null_resource" "build_image" {
   depends_on = [ google_container_cluster.cluster, null_resource.update_hostnames]
   provisioner "local-exec" {
-    command = "sudo docker build -t gcr.io/gold-braid-268003/vasten-container-image:latest ../."
+    command = "sudo docker build -t gcr.io/${var.project}/vasten-container-image:latest ../."
   }
 }
 
 resource "null_resource" "push_image" {
   depends_on = [null_resource.build_image, google_container_cluster.cluster]
   provisioner "local-exec" {
-    command = "sudo docker push gcr.io/gold-braid-268003/vasten-container-image:latest"
+    command = "sudo docker push gcr.io/${var.project}/vasten-container-image:latest"
   }
 }
 

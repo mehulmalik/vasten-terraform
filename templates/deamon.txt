@@ -21,7 +21,7 @@ spec:
       # the container(s) in this Pod
       containers:
       - name: prefix-container
-        image: gcr.io/gold-braid-268003/image_repo_path
+        image: gcr.io/unique-badge-276520/image_repo_path
         volumeMounts:
         - mountPath: /mnt/data
           subPath: vasten-pod

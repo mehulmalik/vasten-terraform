@@ -12,4 +12,4 @@ spec:
   - ReadWriteMany
   nfs:
     path: /newdemovasten52
-    server: 10.219.42.202
+    server: 10.85.163.10

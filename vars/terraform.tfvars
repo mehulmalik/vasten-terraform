@@ -1,8 +1,8 @@
-project = "gold-braid-268003"
+project = "unique-badge-276520"
 region = "us-west1"
 location = "us-west1-a"
 name_prefix = "vasten"
-project_id = "gold-braid-268003"
+project_id = "unique-badge-276520"
 
 # Configuration properties for the vasten-cloud CLI utility
 # Make sure the properties file is properly configured to make sure the Cluster is configured properly
@@ -23,7 +23,7 @@ vasten_cloud="GCP"
 
 # Project name (prefixed to the cloud tags)
 # Possible values:
-gcp_project="gold-braid-268003"
+gcp_project="unique-badge-276520"
 
 # The region to setup the cluster in
 # Possible values:
@@ -38,7 +38,7 @@ gcp_location="us-west1-a"
 gcp_prefix="vasten"
 
 # The ID of the project created in GCP for setting up the cloud resources
-gcp_projectId="566785458490"
+gcp_projectId="920449666113"
 
 # The path to the key file which has aceess to cloud resources
 gcp_keyPath="~/Documents/Mehul/Vasten_Cloud/vasten_terraform/vasten-8d684f35b4d1.json"
